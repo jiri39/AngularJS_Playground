@@ -1,0 +1,22 @@
+<!doctype html>
+<html data-ng-app>
+<head>
+<title>Angular JS Directives and Data Bindings</title>
+	<script src="Scripts/angular.js"></script>
+	<!--https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js-->
+
+</head>
+<body data-ng-init="morgans=[{name:'Junius S. Morgan', city: 'London'} , { name:'John P. Morgan' , city: 'New York'} , { name: 'Jack Morgan' , city: 'New Jersey'}]">
+
+
+	Name: <input type="text" ng-model="name"/>
+	<br/>
+	{{ name }}
+	<br/>
+	<ul>
+		<li data-ng-repeat="morgan in morgans | filter: name | orderBy: 'city'"> {{ morgan.name | uppercase }} - {{ morgan.city | lowercase }} </li>
+	</ul>
+
+	</body>
+	</html>
+	

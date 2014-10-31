@@ -1,0 +1,55 @@
+<!doctype html>
+<html data-ng-app="demoApp">
+<head>
+	<title>Angular JS Routes and Factories</title>
+	<!--https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js-->
+</head>
+<body>
+	<div>
+		<!--Placeholder for views -->
+		<div data-ng-view=""></div>
+	</div>
+		<script src="Scripts/angular.js"></script>
+
+		<script>
+			var demoApp = angular.module('demoApp' , []); 
+
+			demoApp.config (function ($routeProvider) {
+				$routeProvider
+					.when('/View1', 
+						{
+							controller:'SimpleController',
+							templateUrl: 'Partials/View1.html' 
+						})
+					.when('/view2',
+						{
+							controller:'SimpleController',
+							templateUrl: 'Partials/View2.html'
+
+						})
+					.otherwise ({ redirectTo: '/)'})
+
+					});
+
+			demoApp.controller('SimpleController', function ($scope) {
+				$scope.morgans = [
+					{name:'Junius S. Morgan', city: 'London'} , 
+					{ name:'John P. Morgan' , city: 'New York'} , 
+					{ name: 'Jack Morgan' , city: 'New Jersey'}
+				];
+
+				$scope.addMorgan = function (){
+					$scope.morgans.push( 
+						{ 
+							name: $scope.newMorgan.name , 
+							city: $scope.newMorgan.city
+					});
+				};
+
+			});
+					
+		 </script>
+
+	</body>
+	</html>
+	

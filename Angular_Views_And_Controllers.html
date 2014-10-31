@@ -1,0 +1,37 @@
+<!doctype html>
+<html data-ng-app>
+<head>
+<title>Angular JS Views and Controllers</title>
+	<!--https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js-->
+</head>
+<body>
+
+<div data-ng-controller="SimpleController">
+
+
+		Name: <input type="text" ng-model="name"/>
+		<br/>
+		{{ name }}
+		<br/>
+
+		<ul>
+			<li data-ng-repeat="morgan in morgans | filter: name | orderBy: 'city'"> {{ morgan.name | uppercase }} - {{ morgan.city | lowercase }} </li>
+		</ul>
+	</div>
+
+	<script src="Scripts/angular.js"></script>
+
+	<script>
+		function SimpleController ($scope) {
+			$scope.morgans = [
+				{name:'Junius S. Morgan', city: 'London'} , 
+				{ name:'John P. Morgan' , city: 'New York'} , 
+				{ name: 'Jack Morgan' , city: 'New Jersey'}
+			];
+		}
+	</script>
+
+
+	</body>
+	</html>
+	

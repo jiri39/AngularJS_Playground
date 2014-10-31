@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="App">
+
+<head>
+	<script src="Scripts/angular.js"></script>
+	<!--<script type="text/javascript" src="script.js"></script>--> 
+</head>
+
+<body>
+	
+<div ng-controller="InvoiceCntl">
+
+<b>inovice</b>
+	<br>
+	<br>
+
+<table>
+	<tr><td>Quantity</td><td>Cost</td></tr>
+<tr>
+	<td><input type="number" ng-pattern="/\d+/" step="1" min="0" ng-model="qty" required></td>
+	<td><input type="number" ng-model="cost" required></td>
+</tr>
+</table>
+
+
+<hr>
+<b>Total:</b> {{ qty * cost | currency }}
+</div>
+
+
+</body>
+</html>
